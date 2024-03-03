@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== TAB ICON ==========-->
+        <link rel="shortcut icon" type="x-icon" href="tdbicon.png">
+        <!--========== BOX ICONS ==========-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- stylesheets are conveniently separated into components -->
+        <link rel="stylesheet" media="all" href="../component/styles/setup.css">
+        <link rel="stylesheet" media="all" href="../component/styles/says.css">
+        <link rel="stylesheet" media="all" href="../component/styles/reply.css">
+        <link rel="stylesheet" media="all" href="../component/styles/typing.css">
+        <link rel="stylesheet" media="all" href="../component/styles/input.css">
+        <link rel="stylesheet" href="assets/css/styles.css"> <!--kapag inalis ko ito nabalik na yung chat eme-->
+        <style>
+            body {
+                background: #dcdde0;
+            }
+        
+            .bubble-container {
+                height: 100vh;
+            }
+        
+            .bubble-container .input-wrap textarea {
+                margin: 0;
+                width: calc(100%);
+
+            }
+        </style>
+        <title>Dangal Bot</title>
+    </head>
+    <body>
+        <!--========== HEADER ==========-->
+        <header class="header">
+            <div class="header__container">
+                <img src="dblogo.png" alt="" class="header__img">
+
+                <a href="#" class="header__logo">Dangal Bot</a>
+    
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
+                </div>
+            </div>
+        </header>
+
+        <!--========== NAV ==========-->
+        <div class="nav" id="navbar">
+            <nav class="nav__container">
+                <div>
+                    <a href="#" class="nav__link nav__logo">
+                        <img src="tdbicon.png" alt="Logo" style="width:40px;" class="rounded-pill">
+                        <span class="nav__logo-name">Dangal Bot</span>
+                    </a>
+    
+                    <div class="nav__list">                    
+                        <div class="nav__items">
+                            <h3 class="nav__subtitle">Menu</h3>
+    
+                                <a href="#" class="nav__link">
+                                    <i class="bx bx-grid-alt" ></i>
+                                    <span class="nav__name">About</span>
+                                </a>
+
+                            <a href="#" class="nav__link">
+                                <i class='bx bx-bot'></i>
+                                <span class="nav__name">Dangal Bot</span>
+                            </a>
+
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-group'></i>
+                                    <span class="nav__name">Acknowledgements</span>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="researchers.html" class="nav__dropdown-item">Researchers</a>
+                                        <a href="#" class="nav__dropdown-item">Research Validators</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="nav__link nav__logout">
+                    <i class='bx bx-log-out nav__icon'></i>
+                    <span class="nav__name">Log Out</span>
+                </a>
+            </nav>
+        </div>
+
+        <!--========== CONTENTS ==========-->
+        <main>
+            <section class="main_chat">
+              <!--container element for chat window--> 
+            <div id="chat"></div>
+            
+            <!-- import the JavaScript file -->
+            <script src="../component/Bubbles.js"></script>
+            <script>
+                // initialize by constructing a named function...
+                // ...and add text processing plugin:
+                var chatWindow = new Bubbles(document.getElementById("chat"), "chatWindow", {
+                    // the one that we care about is inputCallbackFn()
+                    // this function returns an object with some data that we can process from user input
+                    // and understand the context of it
+
+                    // this is an example function that matches the text user typed to one of the answer bubbles
+                    // this function does no natural language processing
+                    // this is where you may want to connect this script to NLC backend.
+                    inputCallbackFn: function (o) {
+                        // add error conversation block & recall it if no answer matched
+                        var miss = function () {
+                            chatWindow.talk(
+                                {
+                                    "i-dont-get-it": {
+                                        says: [
+                                            "Sorry, I don't get it 😕. Pls repeat? Or you can just click below 👇"
+                                        ],
+                                        reply: o.convo[o.standingAnswer].reply
+                                    }
+                                },
+                                "i-dont-get-it"
+                            )
+                        }
+
+                        // do this if answer found
+                        var match = function (key) {
+                            setTimeout(function () {
+                                chatWindow.talk(convo, key) // restart current convo from point found in the answer
+                            }, 600)
+                        }
+
+                        // sanitize text for search function
+                        var strip = function (text) {
+                            return text.toLowerCase().replace(/[\s.,\/#!$%\^&\*;:{}=\-_'"`~()]/g, "")
+                        }
+
+                        // search function
+                        var found = false
+                        o.convo[o.standingAnswer].reply.forEach(function (e, i) {
+                            strip(e.question).includes(strip(o.input)) && o.input.length > 0
+                                ? (found = e.answer)
+                                : found ? null : (found = false)
+                        })
+                        found ? match(found) : miss()
+                    }
+                }) // done setting up chat-bubble
+
+                // conversation object defined separately, but just the same as in the
+                // "Basic chat-bubble Example" (1-basics.html)
+                var convo = {
+                    ice: {
+                        says: ["Hi, Dangal ng Bayan!", "Here are the informations I have as of now"], // Greetings
+                        reply: [ // Choices button for the user
+                            {
+                                question: "Graduation",
+                                answer: "graduation"
+                            }
+                        ]
+                    },
+                    "finish": {
+                        says: ["Thanks for using Dangal Bot",
+                            "Please click on the following link to complete a survey: <a href='https://forms.gle/nWbPK65zycGDRapY9' target='_blank'>Survey Form</a>"
+                        ],
+                        reply: [
+                            {
+                                question: "Start Over",
+                                answer: "ice"
+                            }
+                        ]
+                    },
+                    "graduation": {
+                        says: ["Here are the informations I have"],
+                        reply: [
+                            {
+                                question: "Graduation Schedule",
+                                answer: "gradsched"
+                            },
+                            {
+                                question: "Graduation Expenses",
+                                answer: "gradexpenses"
+                            }
+                        ]
+                    },
+                    "gradsched": {
+                        says: ["<strong>Baccalaurette Mass</strong> <br> WHEN:June 20, 2024 <br> WHERE:To be announce <br> <br> <strong>Graduation Day</strong> <br> WHEN:June 21, 2024 <br> WHERE:Santa Rosa Sports Complex",
+                               "Is there anything I can do for you ?"
+                              ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "graduation"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "gradexpenses": {
+                        says: ["<strong>Graduation Photo</strong> = 1,500 <br> Inclusions: <br>- 8R Size Toga Bundle <br>-4pcs Wallet Size Picture <br>-Free Professional Hair & Makeup <br>-Yearbook",
+                               "<strong>Graduation Fee</strong> = 2,570 <br> Inclusions: <br> -Diploma = 200 <br> -Beca = 150 <br> -Gown Rental = 250 <br> -Program = 200 <br> -Technical Fee = 300 <br> -Miscellaneous Fee = 300 <br> -Venue = 100 <br> -Gown Refund = 800",
+                               "<strong>Add Ons:</strong> <br> -Filipiñana/Barong = 350 <br> -Creative shots = 350 <br> -Couple shots = 350 <br> -Barkada shots = 450 (max: 8 members) <br> -Family shots = 450 <br> -Photo in Stage & Photo Wall = 200php",
+                               "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "graduation"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "latest": {
+                        says: ["Here are the informations I have as of now"],
+                        reply: [
+                            {
+                                question: "Enrollment",
+                                answer: "enrollment"
+                            },
+                            {
+                                question: "Classroom Number",
+                                answer: "room"
+                            },
+                            {
+                                question: "Go Back",
+                                answer: "ice"
+                            }
+                        ]
+                    },
+                    "room": {
+                        says: ["Here's the room assignement"],
+                        reply: [
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            },
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "ice"
+                            }
+                        ]
+                    },
+                    "enrollment": {
+                        says: ["Here are the things you must know about Enrollment:",
+                            "What: 2nd Sem Enrolment",
+                            "When: January 24 - 30",
+                            "Where: PNC",
+                            "For other informations you can find it here ",
+                            "Is there anything I can do for you?"],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "ice"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    }
+                }
+
+                // pass JSON to your function and you're done!
+                chatWindow.talk(convo)
+            </script>
+            
+            </section>
+        </main>
+
+        <!--========== MAIN JS (for sidebar)==========-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
