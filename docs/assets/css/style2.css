@@ -1,3 +1,4 @@
+/*Para sa researchers and reseach comittee*/
 * {
   box-sizing: border-box;
 }
@@ -136,7 +137,7 @@ div.responsive1 {
     display: table;
     clear: both;
   }
-  .button {
+  .button  {
     background-color: #04AA6D;
     border: none;
     color: white;
@@ -148,4 +149,3 @@ div.responsive1 {
     margin: 4px 2px;
     cursor: pointer;
   }
-

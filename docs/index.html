@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!--========== TAB ICON ==========-->
-        <link rel="shortcut icon" type="x-icon" href="tdbicon.png">
+        <link rel="shortcut icon" type="x-icon" href="/docs/images/tdbicon.png">
         <!--========== BOX ICONS ==========-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -20,7 +20,7 @@
         <link rel="stylesheet" media="all" href="component/styles/reply.css">
         <link rel="stylesheet" media="all" href="component/styles/typing.css">
         <link rel="stylesheet" media="all" href="component/styles/input.css">
-        <link rel="stylesheet" href="assets/css/styles.css"> <!--kapag inalis ko ito nabalik na yung chat eme-->
+        <link rel="stylesheet" href="assets/css/styles.css"> <!--Para sa index sidebar-->
         <style>
             body {
                 background: #dcdde0;
@@ -42,9 +42,9 @@
         <!--========== HEADER ==========-->
         <header class="header">
             <div class="header__container">
-                <img src="dblogo.png" alt="" class="header__img">
+                <img src="/docs/images/dblogo.png" alt="" class="header__img">
 
-                <a href="#" class="header__logo">Dangal Bot</a>
+                <a href="index.html" class="header__logo">Dangal Bot</a>
     
                 <div class="header__toggle">
                     <i class='bx bx-menu' id="header-toggle"></i>
@@ -56,8 +56,8 @@
         <div class="nav" id="navbar">
             <nav class="nav__container">
                 <div>
-                    <a href="#" class="nav__link nav__logo">
-                        <img src="tdbicon.png" alt="Logo" style="width:40px;" class="rounded-pill">
+                    <a href="index.html" class="nav__link nav__logo">
+                        <img src="/docs/images/tdbicon.png" alt="Logo" style="width:40px;" class="rounded-pill">
                         <span class="nav__logo-name">Dangal Bot</span>
                     </a>
     
@@ -65,15 +65,15 @@
                         <div class="nav__items">
                             <h3 class="nav__subtitle">Menu</h3>
     
-                                <a href="#" class="nav__link">
-                                    <i class="bx bx-grid-alt" ></i>
-                                    <span class="nav__name">About</span>
+                                <a href="researchers.html" class="nav__link">
+                                    <i class="bx bx-grid-alt"></i>
+                                    <span class="nav__name">About Us</span>
                                 </a>
 
-                            <a href="#" class="nav__link">
-                                <i class='bx bx-bot'></i>
-                                <span class="nav__name">Dangal Bot</span>
-                            </a>
+                                <a href="dangalbot_info.html" class="nav__link">
+                                    <i class='bx bx-bot'></i>
+                                    <span class="nav__name">Dangal Bot</span>
+                                </a>
 
                             <div class="nav__dropdown">
                                 <a href="#" class="nav__link">
@@ -84,8 +84,7 @@
 
                                 <div class="nav__dropdown-collapse">
                                     <div class="nav__dropdown-content">
-                                        <a href="researchers.html" class="nav__dropdown-item">Researchers</a>
-                                        <a href="#" class="nav__dropdown-item">Research Validators</a>
+                                        <a href="validators.html" class="nav__dropdown-item">Research Committee</a>
                                     </div>
                                 </div>
 
@@ -93,11 +92,6 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="#" class="nav__link nav__logout">
-                    <i class='bx bx-log-out nav__icon'></i>
-                    <span class="nav__name">Log Out</span>
-                </a>
             </nav>
         </div>
 
@@ -168,7 +162,12 @@
                             {
                                 question: "Graduation",
                                 answer: "graduation"
+                            },
+                            {
+                                question: "Exam",
+                                answer: "exam"
                             }
+
                         ]
                     },
                     "finish": {
@@ -179,6 +178,517 @@
                             {
                                 question: "Start Over",
                                 answer: "ice"
+                            }
+                        ]
+                    },
+                    "exam": {
+                        says: ["Kindly select your strand"],
+                        reply: [
+                            {
+                                question: "STEM",
+                                answer: "stem"
+                            
+                            },
+                            {
+                                question: "ABM",
+                                answer: "abm"
+                            },
+                            {
+                                question: "HUMSS",
+                                answer: "humss"
+                            },
+                            {
+                                question: "TVL",
+                                answer: "tvl"
+                            },
+                            {
+                                question: "Back",
+                                answer: "ice"
+                            }
+                        ],
+                    },
+                    "stem": {
+                        says: ["Kindly select your strand"],
+                        reply: [
+                            {
+                                question: "STEM-C",
+                                answer: "stem-c"
+                            },
+                            {
+                                question: "STEM-E",
+                                answer: "stem-e"
+                            },
+                            {
+                                question: "STEM-H",
+                                answer: "stem-h"
+                            },
+                            {
+                                question: "Back",
+                                answer: "exam"
+                            }
+                        ]
+                    },
+                    "stem-e": {
+                        says: ["Are you an Even or Odd section?"],
+                        reply: [
+                            {
+                                question: "Even",
+                                answer: "evene"
+                            },
+                            {
+                                question: "Odd",
+                                answer: "odde"
+                            },
+                            {
+                                question: "Back",
+                                answer: "exam"
+                            }
+                        ]
+                    },
+                    "odde": {
+                        says: ["<strong>Exam Schedule : STEM-E</strong> <br> \n\
+                                <strong>Day 1:</strong> March 19, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : PE 4 <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:00 am : CPAR <br> \n\
+                                10:00 am-10:30 am : BREAK <br> \n\
+                                10:30 am-12:00 nn : PHYS2 <br> <br> \n\
+                                <strong>Day 2:</strong> March 21, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : MTECH <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:30 am : CHEM 2 <br> \n\
+                                10:30 am-11:00 am : BREAK <br> \n\
+                                11:00 am-12:30 nn : ACAD",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "stem-e"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "evene": {
+                        says: ["<strong>Exam Schedule: STEM-E</strong> <br> \n\
+                                <strong>Day 1:</strong> March 18, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : PE 4 <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:00 am : CPAR <br> \n\
+                                10:00 am-10:30 am : BREAK <br> \n\
+                                10:30 am-12:00 nn : PHYS2 <br> <br> \n\
+                                <strong>Day 2:</strong> March 20, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : MTECH <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:30 am : CHEM 2 <br> \n\
+                                10:30 am-11:00 am : BREAK <br> \n\
+                                11:00 am-12:30 nn : ACAD",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "stem-e"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "stem-c": {
+                        says: ["Are you an Even or Odd section?"],
+                        reply: [
+                            {
+                                question: "Even",
+                                answer: "evenc"
+                            },
+                            {
+                                question: "Odd",
+                                answer: "oddc"
+                            },
+                            {
+                                question: "Back",
+                                answer: "exam"
+                            }
+                        ]
+                    },
+                    "evenc": {
+                        says: ["<strong>Exam Schedule: STEM-C</strong> <br> \n\
+                                <strong>Day 1:</strong> March 18, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                12:30nn-1:30pm : PE 4 <br> \n\
+                                1:30pm-2:00pm : BREAK <br> \n\
+                                2:00pm-3:00pm : CPAR <br> \n\
+                                3:00pm-3:30 am : BREAK <br> \n\
+                                3:30pm-5:00pm : PHYS2 <br> <br> \n\
+                                <strong>Day 2:</strong> March 20, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                1:00pm-2:00pm : MTECH <br> \n\
+                                2:00pm-2:30pm : BREAK <br> \n\
+                                2:30pm-4:00pm : CHEM 2 <br> \n\
+                                4:00pm-4:30pm : BREAK <br> \n\
+                                4:30pm-6:00pm : WDEV",
+                                "Is there anything I can do for you ?"
+                            ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "stem-c"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "oddc": {
+                        says: ["<strong>Exam Schedule: STEM-C</strong> <br> \n\
+                                <strong>Day 1:</strong> March 19, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                12:30nn-1:30pm : PE 4 <br> \n\
+                                1:30pm-2:00pm : BREAK <br> \n\
+                                2:00pm-3:00pm : CPAR <br> \n\
+                                3:00pm-3:30 am : BREAK <br> \n\
+                                3:30pm-5:00pm : PHYS2 <br> <br> \n\
+                                <strong>Day 2:</strong> March 21, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                1:00pm-2:00pm : MTECH <br> \n\
+                                2:00pm-2:30pm : BREAK <br> \n\
+                                2:30pm-4:00pm : CHEM 2 <br> \n\
+                                4:00pm-4:30pm : BREAK <br> \n\
+                                4:30pm-6:00pm : WDEV",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "stem-c"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "stem-h": {
+                        says: ["Are you an Even or Odd section?"],
+                        reply: [
+                            {
+                                question: "Even",
+                                answer: "evenh"
+                            },
+                            {
+                                question: "Odd",
+                                answer: "oddh"
+                            },
+                            {
+                                question: "Back",
+                                answer: "exam"
+                            }
+                        ]
+                    },
+                    "oddh": {
+                        says: ["<strong>Exam Schedule: STEM-H</strong> <br> \n\
+                                <strong>Day 1:</strong> March 19, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : PE 4 <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:00 am : CPAR <br> \n\
+                                10:00 am-10:30 am : BREAK <br> \n\
+                                10:30 am-12:00 nn : PHYS2 <br> <br> \n\
+                                <strong>Day 2:</strong> March 21, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : MTECH <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:30 am : CHEM 2 <br> \n\
+                                10:30 am-11:00 am : BREAK <br> \n\
+                                11:00 am-12:30 nn : APHY",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "stem-e"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "evenh": {
+                        says: ["<strong>Exam Schedule: STEM-H</strong> <br> \n\
+                                <strong>Day 1:</strong> March 18, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : PE 4 <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:00 am : CPAR <br> \n\
+                                10:00 am-10:30 am : BREAK <br> \n\
+                                10:30 am-12:00 nn : PHYS2 <br> <br> \n\
+                                <strong>Day 2:</strong> March 20, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : MTECH <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:30 am : CHEM 2 <br> \n\
+                                10:30 am-11:00 am : BREAK <br> \n\
+                                11:00 am-12:30 nn : APHY",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "stem-h"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "abm": {
+                        says: ["Are you an Even or Odd section?"],
+                        reply: [
+                            {
+                                question: "Even",
+                                answer: "evena"
+                            },
+                            {
+                                question: "Odd",
+                                answer: "odda"
+                            },
+                            {
+                                question: "Back",
+                                answer: "exam"
+                            }
+                        ]
+                    },
+                    "evena": {
+                        says: ["<strong>Exam Schedule: ABM</strong> <br> \n\
+                                <strong>Day 1:</strong> March 18, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                12:30nn-1:30pm : PE 4 <br> \n\
+                                1:30pm-2:00pm : BREAK <br> \n\
+                                2:00pm-3:00pm : CPAR <br> \n\
+                                3:00pm-3:30 am : BREAK <br> \n\
+                                3:30pm-5:00pm : AECO <br> <br> \n\
+                                <strong>Day 2:</strong> March 20, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                1:00pm-2:00pm : MTECH <br> \n\
+                                2:00pm-2:30pm : BREAK <br> \n\
+                                2:30pm-4:00pm : BESR <br> \n\
+                                4:00pm-4:30pm : BREAK <br> \n\
+                                4:30pm-6:00pm : BLAW <br> <br>\n\
+                                <strong>Day 3:</strong> March 22, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                1:00pm-2:00pm : ENTR <br> \n\
+                                2:00pm-2:30pm : BREAK <br> \n\
+                                2:30pm-4:00pm : BESM <br>",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "abm"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "odda": {
+                        says: ["<strong>Exam Schedule: ABM</strong> <br> \n\
+                                <strong>Day 1:</strong> March 19, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                12:30nn-1:30pm : PE 4 <br> \n\
+                                1:30pm-2:00pm : BREAK <br> \n\
+                                2:00pm-3:00pm : CPAR <br> \n\
+                                3:00pm-3:30 am : BREAK <br> \n\
+                                3:30pm-5:00pm : AECO <br> <br> \n\
+                                <strong>Day 2:</strong> March 21, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                1:00pm-2:00pm : MTECH <br> \n\
+                                2:00pm-2:30pm : BREAK <br> \n\
+                                2:30pm-4:00pm : BESR <br> \n\
+                                4:00pm-4:30pm : BREAK <br> \n\
+                                4:30pm-6:00pm : BLAW <br> <br>\n\
+                                <strong>Day 3:</strong> March 22, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                1:00pm-2:00pm : ENTR <br> \n\
+                                2:00pm-2:30pm : BREAK <br> \n\
+                                2:30pm-4:00pm : BESM <br>",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "abm"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "humss": {
+                        says: ["Are you an Even or Odd section?"],
+                        reply: [
+                            {
+                                question: "Even",
+                                answer: "evenH"
+                            },
+                            {
+                                question: "Odd",
+                                answer: "oddH"
+                            },
+                            {
+                                question: "Back",
+                                answer: "exam"
+                            }
+                        ]
+                    },
+                    "evenH": {
+                        says: ["<strong>Exam Schedule: HUMSS</strong> <br> \n\
+                                <strong>Day 1:</strong> March 18, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                12:30nn-1:30pm : PE 4 <br> \n\
+                                1:30pm-2:00pm : BREAK <br> \n\
+                                2:00pm-3:00pm : CPAR <br> \n\
+                                3:00pm-3:30 am : BREAK <br> \n\
+                                3:30pm-5:00pm : AECO <br> \n\
+                                5:00pm-5:30PM : BREAK <br> \n\
+                                5:30pm-6:30pm : ENTR <br> <br> \n\
+                                <strong>Day 2:</strong> March 20, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                1:00pm-2:00pm : MTECH <br> \n\
+                                2:00pm-2:30pm : BREAK <br> \n\
+                                2:30pm-4:00pm : NFIC <br> \n\
+                                4:00pm-4:30pm : BREAK <br> \n\
+                                4:30pm-6:00pm : TNET",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "humss"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "oddH": {
+                        says: ["<strong>Exam Schedule: HUMSS</strong> <br> \n\
+                                <strong>Day 1:</strong> March 19, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                12:30nn-1:30pm : PE 4 <br> \n\
+                                1:30pm-2:00pm : BREAK <br> \n\
+                                2:00pm-3:00pm : CPAR <br> \n\
+                                3:00pm-3:30 am : BREAK <br> \n\
+                                3:30pm-5:00pm : AECO <br> \n\
+                                5:00pm-5:30PM : BREAK <br> \n\
+                                5:30pm-6:30pm : ENTR <br> <br> \n\
+                                <strong>Day 2:</strong> March 21, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                1:00pm-2:00pm : MTECH <br> \n\
+                                2:00pm-2:30pm : BREAK <br> \n\
+                                2:30pm-4:00pm : NFIC <br> \n\
+                                4:00pm-4:30pm : BREAK <br> \n\
+                                4:30pm-6:00pm : TNET",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "humss"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "tvl": {
+                        says: ["Are you an Even or Odd section?"],
+                        reply: [
+                            {
+                                question: "Even",
+                                answer: "event"
+                            },
+                            {
+                                question: "Odd",
+                                answer: "oddt"
+                            },
+                            {
+                                question: "Back",
+                                answer: "exam"
+                            }
+                        ]
+                    },
+                    "oddt": {
+                        says: ["<strong>Exam Schedule: TVL</strong> <br> \n\
+                                <strong>Day 1:</strong> March 19, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : PE 4 <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:00 am : PHYSCI <br> \n\
+                                10:00 am-10:30 am : BREAK <br> \n\
+                                10:30 am-12:00 nn : COMPROG 4 <br> <br> \n\
+                                <strong>Day 2:</strong> March 21, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : MTECH <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:30 am : CSS 4 <br> \n\
+                                10:30 am-11:00 am : BREAK <br> \n\
+                                11:00 am-12:30 nn : ENTR",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "tvl"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
+                            }
+                        ]
+                    },
+                    "event": {
+                        says: ["<strong>Exam Schedule: TVL</strong> <br> \n\
+                                <strong>Day 1:</strong> March 18, 2024 <br> <strong>\n\
+                                Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : PE 4 <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:00 am : PHYSCI <br> \n\
+                                10:00 am-10:30 am : BREAK <br> \n\
+                                10:30 am-12:00 nn : COMPROG 4 <br> <br> \n\
+                                <strong>Day 2:</strong> March 20, 2024 <br> \n\
+                                <strong>Subjects</strong> <br> \n\
+                                7:30 am-8:30 am : MTECH <br> \n\
+                                8:30 am-9:00 am : BREAK <br> \n\
+                                9:00 am-10:30 am : CSS 4 <br> \n\
+                                10:30 am-11:00 am : BREAK <br> \n\
+                                11:00 am-12:30 nn : ENTR",
+                            "Is there anything I can do for you ?"
+                        ],
+                        reply: [
+                            {
+                                question: "Yes, I want to go back",
+                                answer: "tvl"
+                            },
+                            {
+                                question: "No, thank you",
+                                answer: "finish"
                             }
                         ]
                     },
@@ -212,62 +722,14 @@
                     },
                     "gradexpenses": {
                         says: ["<strong>Graduation Photo</strong> = 1,500 <br> Inclusions: <br>- 8R Size Toga Bundle <br>-4pcs Wallet Size Picture <br>-Free Professional Hair & Makeup <br>-Yearbook",
-                               "<strong>Graduation Fee</strong> = 2,570 <br> Inclusions: <br> -Diploma = 200 <br> -Beca = 150 <br> -Gown Rental = 250 <br> -Program = 200 <br> -Technical Fee = 300 <br> -Miscellaneous Fee = 300 <br> -Venue = 100 <br> -Gown Refund = 800",
-                               "<strong>Add Ons:</strong> <br> -Filipiñana/Barong = 350 <br> -Creative shots = 350 <br> -Couple shots = 350 <br> -Barkada shots = 450 (max: 8 members) <br> -Family shots = 450 <br> -Photo in Stage & Photo Wall = 200php",
+                               "<strong>Graduation Fee</strong> = 2,570 <br> Inclusions: <br> -Diploma = 200 <br> -Beca = 150 <br> -Gown Rental = 250 <br> -Program = 200 <br> -Technical Fee = 300 <br> -Miscellaneous Fee = 570 <br> -Venue = 100 <br> -Gown Refund = 800",
+                               "<strong>Add Ons:</strong> <br> -Filipiñana/Barong = 350 <br> -Creative shots = 350 <br> -Couple shots = 350 <br> -Barkada shots = 450 (max: 8 members) <br> -Family shots = 450 <br> -Photo in Stage & Photo Wall = 200 <br> -Class Picture = 60",
                                "Is there anything I can do for you ?"
                         ],
                         reply: [
                             {
                                 question: "Yes, I want to go back",
                                 answer: "graduation"
-                            },
-                            {
-                                question: "No, thank you",
-                                answer: "finish"
-                            }
-                        ]
-                    },
-                    "latest": {
-                        says: ["Here are the informations I have as of now"],
-                        reply: [
-                            {
-                                question: "Enrollment",
-                                answer: "enrollment"
-                            },
-                            {
-                                question: "Classroom Number",
-                                answer: "room"
-                            },
-                            {
-                                question: "Go Back",
-                                answer: "ice"
-                            }
-                        ]
-                    },
-                    "room": {
-                        says: ["Here's the room assignement"],
-                        reply: [
-                            {
-                                question: "No, thank you",
-                                answer: "finish"
-                            },
-                            {
-                                question: "Yes, I want to go back",
-                                answer: "ice"
-                            }
-                        ]
-                    },
-                    "enrollment": {
-                        says: ["Here are the things you must know about Enrollment:",
-                            "What: 2nd Sem Enrolment",
-                            "When: January 24 - 30",
-                            "Where: PNC",
-                            "For other informations you can find it here ",
-                            "Is there anything I can do for you?"],
-                        reply: [
-                            {
-                                question: "Yes, I want to go back",
-                                answer: "ice"
                             },
                             {
                                 question: "No, thank you",
