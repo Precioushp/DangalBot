@@ -1,6 +1,6 @@
 /* setup container styles */
 .bubble-container {
-	background: url(/docs/images/tdbicon.png) no-repeat center center fixed;
+	background: url(tdbicon.png) no-repeat center center fixed;
 	background-size: contain;
 	background-position: 50% 50%;
 	height: 65vh;
